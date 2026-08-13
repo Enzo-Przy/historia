@@ -1,21 +1,19 @@
+// Array para armazenar os versos da história
 const perguntas = [];
 
+// Gerador automático da letra da música
 for (let i = 1; i <= 30; i++) {
     let verso = "";
     
-    // Lógica da música dos elefantes
     if (i === 1) {
         verso = "1 elefante incomoda muita gente...";
     } else if (i % 2 !== 0) {
-        // Números ímpares
         verso = `${i} elefantes incomodam muita gente...`;
     } else {
-        // Números pares: repete "incomodam" a quantidade de vezes do número
         let repeticao = Array(i).fill("incomodam").join(", ");
         verso = `${i} elefantes ${repeticao} muito mais!`;
     }
 
-    // Adiciona o objeto no mesmo formato do seu projeto
     perguntas.push({
         enunciado: verso,
         alternativas: [
@@ -31,5 +29,51 @@ for (let i = 1; i <= 30; i++) {
     });
 }
 
-// Se quiser testar e ver como ficou, é só rodar:
-// console.log(perguntas);
+// Seleção de elementos da DOM
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+
+let atual = 0;
+let historiaFinal = "";
+
+function mostraPergunta() {
+    if (atual >= perguntas.length) {
+        exibeResultadoFinal();
+        return;
+    }
+    
+    const perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
+
+    perguntaAtual.alternativas.forEach(alternativa => {
+        const botao = document.createElement("button");
+        botao.textContent = alternativa.texto;
+        botao.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botao);
+    });
+}
+
+function respostaSelecionada(opcao) {
+    historiaFinal += opcao.afirmacao + " ";
+    
+    // Se o usuário clicar em "Chega, não aguento mais!", encerra a cantoria
+    if (opcao.texto.includes("Chega")) {
+        exibeResultadoFinal();
+    } else {
+        atual++;
+        mostraPergunta();
+    }
+}
+
+function exibeResultadoFinal() {
+    caixaPerguntas.classList.add("escondido");
+    caixaAlternativas.classList.add("escondido");
+    caixaResultado.classList.remove("escondido");
+    textoResultado.textContent = historiaFinal;
+}
+
+// Inicia a aplicação
+mostraPergunta();
