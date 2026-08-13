@@ -20,7 +20,7 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 16px;
     padding: 30px;
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -32,29 +32,29 @@ h1 {
 }
 
 .caixa-perguntas {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 25px;
-    line-height: 1.5;
+    line-height: 1.6;
     background: rgba(0, 0, 0, 0.2);
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
-}
-
-.caixa-alternativas {
+    min-height: 100px;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
     background-color: #4caf50;
     color: white;
     border: none;
-    padding: 14px 20px;
+    padding: 14px 28px;
     font-size: 1rem;
+    font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
+    width: 100%;
 }
 
 button:hover {
@@ -75,11 +75,7 @@ button:hover {
     display: none;
 }
 
-.caixa-resultado h2 {
-    margin-bottom: 15px;
-}
-
 .texto-resultado {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }

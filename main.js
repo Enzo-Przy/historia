@@ -1,79 +1,62 @@
-// Array para armazenar os versos da história
-const perguntas = [];
+// Array contendo apenas as frases dos versos
+const versos = [];
 
-// Gerador automático da letra da música
+// Gera a letra dos 30 elefantes
 for (let i = 1; i <= 30; i++) {
-    let verso = "";
+    let texto = "";
     
     if (i === 1) {
-        verso = "1 elefante incomoda muita gente...";
+        texto = "1 elefante incomoda muita gente...";
     } else if (i % 2 !== 0) {
-        verso = `${i} elefantes incomodam muita gente...`;
+        texto = `${i} elefantes incomodam muita gente...`;
     } else {
         let repeticao = Array(i).fill("incomodam").join(", ");
-        verso = `${i} elefantes ${repeticao} muito mais!`;
+        texto = `${i} elefantes ${repeticao} muito mais!`;
     }
 
-    perguntas.push({
-        enunciado: verso,
-        alternativas: [
-            {
-                texto: "Cantar o próximo verso!",
-                afirmacao: `Você teve fôlego e cantou a parte dos ${i} elefantes com muita empolgação.`
-            },
-            {
-                texto: "Chega, não aguento mais!",
-                afirmacao: `A cantoria cansou e você desistiu no elefante número ${i}.`
-            }
-        ]
-    });
+    versos.push(texto);
 }
 
-// Seleção de elementos da DOM
+// Seleção dos elementos do HTML
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
-let atual = 0;
-let historiaFinal = "";
+let indiceAtual = 0;
 
-function mostraPergunta() {
-    if (atual >= perguntas.length) {
-        exibeResultadoFinal();
+function mostraVerso() {
+    // Se passou do último verso, mostra a tela final
+    if (indiceAtual >= versos.length) {
+        exibeFim();
         return;
     }
-    
-    const perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
 
-    perguntaAtual.alternativas.forEach(alternativa => {
-        const botao = document.createElement("button");
-        botao.textContent = alternativa.texto;
-        botao.addEventListener("click", () => respostaSelecionada(alternativa));
-        caixaAlternativas.appendChild(botao);
+    // Substitui o texto anterior pelo verso atual
+    caixaPerguntas.textContent = versos[indiceAtual];
+    
+    // Limpa a área do botão
+    caixaAlternativas.innerHTML = "";
+
+    // Cria o BOTAO ÚNICO de avanço
+    const botaoProximo = document.createElement("button");
+    botaoProximo.textContent = indiceAtual === versos.length - 1 ? "Finalizar Música ➔" : "Próximo Verso ➔";
+
+    // Ao clicar, avança para o próximo
+    botaoProximo.addEventListener("click", () => {
+        indiceAtual++;
+        mostraVerso();
     });
+
+    caixaAlternativas.appendChild(botaoProximo);
 }
 
-function respostaSelecionada(opcao) {
-    historiaFinal += opcao.afirmacao + " ";
-    
-    // Se o usuário clicar em "Chega, não aguento mais!", encerra a cantoria
-    if (opcao.texto.includes("Chega")) {
-        exibeResultadoFinal();
-    } else {
-        atual++;
-        mostraPergunta();
-    }
-}
-
-function exibeResultadoFinal() {
+function exibeFim() {
     caixaPerguntas.classList.add("escondido");
     caixaAlternativas.classList.add("escondido");
     caixaResultado.classList.remove("escondido");
-    textoResultado.textContent = historiaFinal;
+    textoResultado.textContent = "Ufa! Você cantou a música inteira e aguentou os 30 elefantes!";
 }
 
-// Inicia a aplicação
-mostraPergunta();
+// Inicia a exibição no primeiro verso
+mostraVerso();
