@@ -13,3 +13,11 @@ body{
     justify-content: center;
 
 }
+
+.classe-principal{
+    background-color: var(--cor-pricipal);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+}
