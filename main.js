@@ -85,10 +85,10 @@ function mostraPergunta(){
     }
     perguntaAtual = perguntas[atual]
     caixaPerguntas.textContent = perguntaAtual.enunciado
-    
+    mostraAlternativa()
 }
 
-funcion mostraAlternativa (){
+funcion mostraAlternativa(){
 
     for (const alternativa of perguntaAtual.alternativas){
 
