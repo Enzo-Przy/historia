@@ -98,7 +98,7 @@ function mostraAlternativa(){
         caixaAlternativas.appendChild(botaoAlternativas)
     }
 function respostaSelecionada(opcaoSelecionada){
-    const afirmacoes = opcaoSelecionada.afirmacao{
+        const afirmacoes = opcaoSelecionada.afirmacao{
         historiaFinal += afirmacoes + " "
         atual++
         mostraPergunta()
