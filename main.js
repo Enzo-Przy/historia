@@ -117,5 +117,5 @@ caixaAlternativas.textContent = "";
 }
 
 
-}
+
 mostraPergunta()
