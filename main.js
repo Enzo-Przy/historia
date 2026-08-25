@@ -107,7 +107,7 @@ funcion respostaSelecionada(opcaoSelecionada){
 
 }
 
-funcion mostraResultado(){
+function mostraResultado(){
 
 caixaPerguntas.textContent ="Em 2049..."
 textoResultado.textContent = historiaFinal
