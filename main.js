@@ -92,7 +92,7 @@ funcion mostraAlternativa(){
 
     for (const alternativa of perguntaAtual.alternativas){
 
-        const botaoAlternativas = document.createElement("button")
+        const botaoAlternativas = document.creatElement("button")
         botaoAlternativas.textContent = alternativa.texto 
         botaoAlternativas.addEventListener ("click", ()=> respostaSelecionada(alternativa))
         caixaAlternativas.appendChild(botaoAlternativas)
