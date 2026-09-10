@@ -10,11 +10,17 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Isso é assustador!",
-                afirmacao: "No início ficou com medo do que essa tecnologia pode fazer. "
+                afirmacao: [
+                    "No início ficou com medo do que essa tecnologia pode fazer. ",
+                    "No início ficou com aversão do que essa tecnologia pode fazer. "
+                ]
             },
             {
                 texto: "Isso é maravilhoso!",
-                afirmacao: "Quis saber como usar IA no seu dia a dia."
+                afirmacao: [
+                    "Quis saber como usar IA no seu dia a dia.",
+                    "Ele demonstrou interesse em saber como a IA poderia ajudar no dia a dia."
+                ]
             }
         ]
     },
@@ -23,11 +29,17 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Utiliza uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento.",
-                afirmacao: "Conseguiu utilizar a IA para buscar informações úteis."
+                afirmacao: [
+                    "Conseguiu utilizar a IA para buscar informações úteis.",
+                    "Ele teve sucesso em usar a IA para benefício próprio"
+                ]
             },
             {
                 texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-                afirmacao: "Sentiu mais facilidade em utilizar seus próprios recursos para escrever seu trabalho."
+                afirmacao: [
+                    "Sentiu mais facilidade em utilizar seus próprios recursos para escrever seu trabalho.",
+                    "Teve mais dificuldade em usar sua propria inteligência para fazer trabalhos simples"
+                ]
             }
         ]
     },
@@ -36,11 +48,17 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
-                afirmacao: "Vem impulsionando a inovação na área de IA e luta para abrir novos caminhos profissionais com IA."
+                afirmacao: [
+                    "Vem impulsionando a inovação na área de IA e luta para abrir novos caminhos profissionais com IA.",
+                    "Está inovando a área da IA para possivelmente abrir alguns novos empregos no ramo da IA em custo de milhares de outros."
+                ]
             },
             {
                 texto: "Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.",
-                afirmacao: "Sua preocupação com as pessoas motivou a criar um grupo de estudos entre trabalhadores para discutir meios de utilização de IA de forma ética."
+                afirmacao: [
+                    "Sua preocupação com as pessoas motivou a criar um grupo de estudos entre trabalhadores para discutir meios de utilização de IA de forma ética.",
+                    "Não existe um uso ético para a IA, não atualmente"
+                ]
             }
         ]
     },
